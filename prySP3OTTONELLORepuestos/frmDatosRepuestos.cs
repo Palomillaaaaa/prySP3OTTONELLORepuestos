@@ -16,11 +16,11 @@ namespace prySP3OTTONELLORepuestos
         {
             InitializeComponent();
         }
-        float vPrecio;
+        
+        
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,6 +30,18 @@ namespace prySP3OTTONELLORepuestos
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void cmbMarcaRepuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbOrigenRepuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMarcaRepuesto.Text == "")
+                    { }
 
         }
     }

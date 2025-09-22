@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             gpbDatos = new GroupBox();
-            lblMarcadelRepuesto = new Label();
-            cmbMarcaRepuesto = new ComboBox();
+            rtbDescripcion = new RichTextBox();
+            btnGuardar = new Button();
+            maskedTextBox2 = new MaskedTextBox();
+            lblPrecio = new Label();
+            label1 = new Label();
+            mtbNumero = new MaskedTextBox();
+            lblNumeroRepuesto = new Label();
             cmbOrigenRepuesto = new ComboBox();
             lblOrigenRepuesto = new Label();
-            lblNumeroRepuesto = new Label();
-            mtbNumero = new MaskedTextBox();
-            label1 = new Label();
-            lblPrecio = new Label();
-            maskedTextBox2 = new MaskedTextBox();
-            btnGuardar = new Button();
-            rtbDescripcion = new RichTextBox();
+            cmbMarcaRepuesto = new ComboBox();
+            lblMarcadelRepuesto = new Label();
             gpbDatos.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,68 +65,31 @@
             gpbDatos.Text = "Datos del Repuesto";
             gpbDatos.Enter += groupBox1_Enter;
             // 
-            // lblMarcadelRepuesto
+            // rtbDescripcion
             // 
-            lblMarcadelRepuesto.AutoSize = true;
-            lblMarcadelRepuesto.Location = new Point(16, 28);
-            lblMarcadelRepuesto.Name = "lblMarcadelRepuesto";
-            lblMarcadelRepuesto.Size = new Size(43, 15);
-            lblMarcadelRepuesto.TabIndex = 1;
-            lblMarcadelRepuesto.Text = "Marca ";
+            rtbDescripcion.Location = new Point(16, 111);
+            rtbDescripcion.MaxLength = 50;
+            rtbDescripcion.Name = "rtbDescripcion";
+            rtbDescripcion.Size = new Size(355, 97);
+            rtbDescripcion.TabIndex = 1;
+            rtbDescripcion.Text = "";
             // 
-            // cmbMarcaRepuesto
+            // btnGuardar
             // 
-            cmbMarcaRepuesto.FormattingEnabled = true;
-            cmbMarcaRepuesto.Items.AddRange(new object[] { "P", "F", "R" });
-            cmbMarcaRepuesto.Location = new Point(16, 46);
-            cmbMarcaRepuesto.Name = "cmbMarcaRepuesto";
-            cmbMarcaRepuesto.Size = new Size(85, 23);
-            cmbMarcaRepuesto.TabIndex = 1;
+            btnGuardar.Location = new Point(396, 172);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(117, 36);
+            btnGuardar.TabIndex = 1;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // cmbOrigenRepuesto
+            // maskedTextBox2
             // 
-            cmbOrigenRepuesto.FormattingEnabled = true;
-            cmbOrigenRepuesto.Items.AddRange(new object[] { "N", "I" });
-            cmbOrigenRepuesto.Location = new Point(155, 46);
-            cmbOrigenRepuesto.Name = "cmbOrigenRepuesto";
-            cmbOrigenRepuesto.Size = new Size(85, 23);
-            cmbOrigenRepuesto.TabIndex = 2;
-            // 
-            // lblOrigenRepuesto
-            // 
-            lblOrigenRepuesto.AutoSize = true;
-            lblOrigenRepuesto.Location = new Point(155, 28);
-            lblOrigenRepuesto.Name = "lblOrigenRepuesto";
-            lblOrigenRepuesto.Size = new Size(46, 15);
-            lblOrigenRepuesto.TabIndex = 3;
-            lblOrigenRepuesto.Text = "Origen ";
-            lblOrigenRepuesto.Click += label1_Click;
-            // 
-            // lblNumeroRepuesto
-            // 
-            lblNumeroRepuesto.AutoSize = true;
-            lblNumeroRepuesto.Location = new Point(286, 28);
-            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
-            lblNumeroRepuesto.Size = new Size(51, 15);
-            lblNumeroRepuesto.TabIndex = 4;
-            lblNumeroRepuesto.Text = "Número";
-            // 
-            // mtbNumero
-            // 
-            mtbNumero.Location = new Point(286, 46);
-            mtbNumero.Mask = "999999";
-            mtbNumero.Name = "mtbNumero";
-            mtbNumero.Size = new Size(85, 23);
-            mtbNumero.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 93);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 15);
-            label1.TabIndex = 5;
-            label1.Text = "Descripción";
+            maskedTextBox2.Location = new Point(413, 46);
+            maskedTextBox2.Mask = "999.999";
+            maskedTextBox2.Name = "maskedTextBox2";
+            maskedTextBox2.Size = new Size(85, 23);
+            maskedTextBox2.TabIndex = 8;
             // 
             // lblPrecio
             // 
@@ -138,31 +101,73 @@
             lblPrecio.Text = "Precio";
             lblPrecio.Click += label2_Click;
             // 
-            // maskedTextBox2
+            // label1
             // 
-            maskedTextBox2.Location = new Point(413, 46);
-            maskedTextBox2.Mask = "999.999";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(85, 23);
-            maskedTextBox2.TabIndex = 8;
+            label1.AutoSize = true;
+            label1.Location = new Point(16, 93);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Descripción";
             // 
-            // btnGuardar
+            // mtbNumero
             // 
-            btnGuardar.Location = new Point(396, 172);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(117, 36);
-            btnGuardar.TabIndex = 1;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            mtbNumero.Location = new Point(286, 46);
+            mtbNumero.Mask = "999999";
+            mtbNumero.Name = "mtbNumero";
+            mtbNumero.Size = new Size(85, 23);
+            mtbNumero.TabIndex = 1;
             // 
-            // rtbDescripcion
+            // lblNumeroRepuesto
             // 
-            rtbDescripcion.Location = new Point(16, 111);
-            rtbDescripcion.MaxLength = 50;
-            rtbDescripcion.Name = "rtbDescripcion";
-            rtbDescripcion.Size = new Size(355, 97);
-            rtbDescripcion.TabIndex = 1;
-            rtbDescripcion.Text = "";
+            lblNumeroRepuesto.AutoSize = true;
+            lblNumeroRepuesto.Location = new Point(286, 28);
+            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
+            lblNumeroRepuesto.Size = new Size(51, 15);
+            lblNumeroRepuesto.TabIndex = 4;
+            lblNumeroRepuesto.Text = "Número";
+            // 
+            // cmbOrigenRepuesto
+            // 
+            cmbOrigenRepuesto.Enabled = false;
+            cmbOrigenRepuesto.FormattingEnabled = true;
+            cmbOrigenRepuesto.Items.AddRange(new object[] { "N", "I" });
+            cmbOrigenRepuesto.Location = new Point(155, 46);
+            cmbOrigenRepuesto.Name = "cmbOrigenRepuesto";
+            cmbOrigenRepuesto.Size = new Size(85, 23);
+            cmbOrigenRepuesto.TabIndex = 2;
+            cmbOrigenRepuesto.SelectedIndexChanged += cmbOrigenRepuesto_SelectedIndexChanged;
+            // 
+            // lblOrigenRepuesto
+            // 
+            lblOrigenRepuesto.AutoSize = true;
+            lblOrigenRepuesto.Location = new Point(155, 28);
+            lblOrigenRepuesto.Name = "lblOrigenRepuesto";
+            lblOrigenRepuesto.Size = new Size(46, 15);
+            lblOrigenRepuesto.TabIndex = 3;
+            lblOrigenRepuesto.Text = "Origen ";
+            lblOrigenRepuesto.Click += label1_Click;
+            // 
+            // cmbMarcaRepuesto
+            // 
+            cmbMarcaRepuesto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMarcaRepuesto.Enabled = false;
+            cmbMarcaRepuesto.FormattingEnabled = true;
+            cmbMarcaRepuesto.Items.AddRange(new object[] { "P", "F", "R" });
+            cmbMarcaRepuesto.Location = new Point(16, 46);
+            cmbMarcaRepuesto.Name = "cmbMarcaRepuesto";
+            cmbMarcaRepuesto.Size = new Size(85, 23);
+            cmbMarcaRepuesto.TabIndex = 1;
+            cmbMarcaRepuesto.SelectedIndexChanged += cmbMarcaRepuesto_SelectedIndexChanged;
+            // 
+            // lblMarcadelRepuesto
+            // 
+            lblMarcadelRepuesto.AutoSize = true;
+            lblMarcadelRepuesto.Location = new Point(16, 28);
+            lblMarcadelRepuesto.Name = "lblMarcadelRepuesto";
+            lblMarcadelRepuesto.Size = new Size(43, 15);
+            lblMarcadelRepuesto.TabIndex = 1;
+            lblMarcadelRepuesto.Text = "Marca ";
             // 
             // frmDatosRepuestos
             // 
