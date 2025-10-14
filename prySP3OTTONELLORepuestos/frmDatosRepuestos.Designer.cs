@@ -29,18 +29,26 @@
         private void InitializeComponent()
         {
             gpbDatos = new GroupBox();
-            lblMarcadelRepuesto = new Label();
-            cmbMarcaRepuesto = new ComboBox();
+            rtbDescripcion = new RichTextBox();
+            btnGuardar = new Button();
+            maskedTextBox2 = new MaskedTextBox();
+            lblPrecio = new Label();
+            label1 = new Label();
+            mtbNumero = new MaskedTextBox();
+            lblNumeroRepuesto = new Label();
             cmbOrigenRepuesto = new ComboBox();
             lblOrigenRepuesto = new Label();
-            lblNumeroRepuesto = new Label();
-            mtbNumero = new MaskedTextBox();
-            label1 = new Label();
-            lblPrecio = new Label();
-            maskedTextBox2 = new MaskedTextBox();
-            btnGuardar = new Button();
-            rtbDescripcion = new RichTextBox();
+            cmbMarcaRepuesto = new ComboBox();
+            lblMarcadelRepuesto = new Label();
+            tbcDatos = new TabControl();
+            tpgDatos = new TabPage();
+            tabPage2 = new TabPage();
+            dataGridView1 = new DataGridView();
             gpbDatos.SuspendLayout();
+            tbcDatos.SuspendLayout();
+            tpgDatos.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // gpbDatos
@@ -57,7 +65,7 @@
             gpbDatos.Controls.Add(cmbMarcaRepuesto);
             gpbDatos.Controls.Add(lblMarcadelRepuesto);
             gpbDatos.FlatStyle = FlatStyle.Popup;
-            gpbDatos.Location = new Point(12, 12);
+            gpbDatos.Location = new Point(19, 23);
             gpbDatos.Name = "gpbDatos";
             gpbDatos.Size = new Size(540, 246);
             gpbDatos.TabIndex = 0;
@@ -65,23 +73,68 @@
             gpbDatos.Text = "Datos del Repuesto";
             gpbDatos.Enter += groupBox1_Enter;
             // 
-            // lblMarcadelRepuesto
+            // rtbDescripcion
             // 
-            lblMarcadelRepuesto.AutoSize = true;
-            lblMarcadelRepuesto.Location = new Point(16, 28);
-            lblMarcadelRepuesto.Name = "lblMarcadelRepuesto";
-            lblMarcadelRepuesto.Size = new Size(43, 15);
-            lblMarcadelRepuesto.TabIndex = 1;
-            lblMarcadelRepuesto.Text = "Marca ";
+            rtbDescripcion.Location = new Point(16, 111);
+            rtbDescripcion.MaxLength = 50;
+            rtbDescripcion.Name = "rtbDescripcion";
+            rtbDescripcion.Size = new Size(355, 97);
+            rtbDescripcion.TabIndex = 1;
+            rtbDescripcion.Text = "";
             // 
-            // cmbMarcaRepuesto
+            // btnGuardar
             // 
-            cmbMarcaRepuesto.FormattingEnabled = true;
-            cmbMarcaRepuesto.Items.AddRange(new object[] { "P", "F", "R" });
-            cmbMarcaRepuesto.Location = new Point(16, 46);
-            cmbMarcaRepuesto.Name = "cmbMarcaRepuesto";
-            cmbMarcaRepuesto.Size = new Size(85, 23);
-            cmbMarcaRepuesto.TabIndex = 1;
+            btnGuardar.Location = new Point(396, 172);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(117, 36);
+            btnGuardar.TabIndex = 1;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // maskedTextBox2
+            // 
+            maskedTextBox2.Location = new Point(413, 46);
+            maskedTextBox2.Mask = "999.999";
+            maskedTextBox2.Name = "maskedTextBox2";
+            maskedTextBox2.Size = new Size(85, 23);
+            maskedTextBox2.TabIndex = 8;
+            // 
+            // lblPrecio
+            // 
+            lblPrecio.AutoSize = true;
+            lblPrecio.Location = new Point(413, 28);
+            lblPrecio.Name = "lblPrecio";
+            lblPrecio.Size = new Size(40, 15);
+            lblPrecio.TabIndex = 7;
+            lblPrecio.Text = "Precio";
+            lblPrecio.Click += label2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(16, 93);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Descripción";
+            // 
+            // mtbNumero
+            // 
+            mtbNumero.Location = new Point(286, 46);
+            mtbNumero.Mask = "999999";
+            mtbNumero.Name = "mtbNumero";
+            mtbNumero.Size = new Size(85, 23);
+            mtbNumero.TabIndex = 1;
+            // 
+            // lblNumeroRepuesto
+            // 
+            lblNumeroRepuesto.AutoSize = true;
+            lblNumeroRepuesto.Location = new Point(286, 28);
+            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
+            lblNumeroRepuesto.Size = new Size(51, 15);
+            lblNumeroRepuesto.TabIndex = 4;
+            lblNumeroRepuesto.Text = "Número";
             // 
             // cmbOrigenRepuesto
             // 
@@ -102,78 +155,81 @@
             lblOrigenRepuesto.Text = "Origen ";
             lblOrigenRepuesto.Click += label1_Click;
             // 
-            // lblNumeroRepuesto
+            // cmbMarcaRepuesto
             // 
-            lblNumeroRepuesto.AutoSize = true;
-            lblNumeroRepuesto.Location = new Point(286, 28);
-            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
-            lblNumeroRepuesto.Size = new Size(51, 15);
-            lblNumeroRepuesto.TabIndex = 4;
-            lblNumeroRepuesto.Text = "Número";
+            cmbMarcaRepuesto.FormattingEnabled = true;
+            cmbMarcaRepuesto.Items.AddRange(new object[] { "P", "F", "R" });
+            cmbMarcaRepuesto.Location = new Point(16, 46);
+            cmbMarcaRepuesto.Name = "cmbMarcaRepuesto";
+            cmbMarcaRepuesto.Size = new Size(85, 23);
+            cmbMarcaRepuesto.TabIndex = 1;
+            cmbMarcaRepuesto.SelectedIndexChanged += cmbMarcaRepuesto_SelectedIndexChanged;
             // 
-            // mtbNumero
+            // lblMarcadelRepuesto
             // 
-            mtbNumero.Location = new Point(286, 46);
-            mtbNumero.Mask = "999999";
-            mtbNumero.Name = "mtbNumero";
-            mtbNumero.Size = new Size(85, 23);
-            mtbNumero.TabIndex = 1;
+            lblMarcadelRepuesto.AutoSize = true;
+            lblMarcadelRepuesto.Location = new Point(16, 28);
+            lblMarcadelRepuesto.Name = "lblMarcadelRepuesto";
+            lblMarcadelRepuesto.Size = new Size(43, 15);
+            lblMarcadelRepuesto.TabIndex = 1;
+            lblMarcadelRepuesto.Text = "Marca ";
             // 
-            // label1
+            // tbcDatos
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 93);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 15);
-            label1.TabIndex = 5;
-            label1.Text = "Descripción";
+            tbcDatos.Controls.Add(tpgDatos);
+            tbcDatos.Controls.Add(tabPage2);
+            tbcDatos.Location = new Point(41, 40);
+            tbcDatos.Name = "tbcDatos";
+            tbcDatos.SelectedIndex = 0;
+            tbcDatos.Size = new Size(617, 367);
+            tbcDatos.TabIndex = 1;
             // 
-            // lblPrecio
+            // tpgDatos
             // 
-            lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(413, 28);
-            lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(40, 15);
-            lblPrecio.TabIndex = 7;
-            lblPrecio.Text = "Precio";
-            lblPrecio.Click += label2_Click;
+            tpgDatos.Controls.Add(gpbDatos);
+            tpgDatos.Location = new Point(4, 24);
+            tpgDatos.Name = "tpgDatos";
+            tpgDatos.Padding = new Padding(3);
+            tpgDatos.Size = new Size(609, 339);
+            tpgDatos.TabIndex = 0;
+            tpgDatos.Text = "Información";
+            tpgDatos.UseVisualStyleBackColor = true;
+            tpgDatos.Click += tpgDatos_Click;
             // 
-            // maskedTextBox2
+            // tabPage2
             // 
-            maskedTextBox2.Location = new Point(413, 46);
-            maskedTextBox2.Mask = "999.999";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(85, 23);
-            maskedTextBox2.TabIndex = 8;
+            tabPage2.Controls.Add(dataGridView1);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(609, 339);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnGuardar
+            // dataGridView1
             // 
-            btnGuardar.Location = new Point(396, 172);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(117, 36);
-            btnGuardar.TabIndex = 1;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // rtbDescripcion
-            // 
-            rtbDescripcion.Location = new Point(16, 111);
-            rtbDescripcion.MaxLength = 50;
-            rtbDescripcion.Name = "rtbDescripcion";
-            rtbDescripcion.Size = new Size(355, 97);
-            rtbDescripcion.TabIndex = 1;
-            rtbDescripcion.Text = "";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(100, 61);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.TabIndex = 0;
             // 
             // frmDatosRepuestos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(837, 467);
-            Controls.Add(gpbDatos);
+            ClientSize = new Size(965, 712);
+            Controls.Add(tbcDatos);
             Name = "frmDatosRepuestos";
             Text = "frmDatosRepuestos";
+            Load += frmDatosRepuestos_Load;
             gpbDatos.ResumeLayout(false);
             gpbDatos.PerformLayout();
+            tbcDatos.ResumeLayout(false);
+            tpgDatos.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -191,5 +247,9 @@
         private Button btnGuardar;
         private MaskedTextBox maskedTextBox2;
         private RichTextBox rtbDescripcion;
+        private TabControl tbcDatos;
+        private TabPage tpgDatos;
+        private TabPage tabPage2;
+        private DataGridView dataGridView1;
     }
 }
