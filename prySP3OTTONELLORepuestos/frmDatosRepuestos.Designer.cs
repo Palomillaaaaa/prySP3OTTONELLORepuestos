@@ -44,6 +44,11 @@
             tpgDatos = new TabPage();
             tabPage2 = new TabPage();
             dataGridView1 = new DataGridView();
+            colMarca = new DataGridViewTextBoxColumn();
+            ColOrigen = new DataGridViewTextBoxColumn();
+            colNumero = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            coldescripcion = new DataGridViewTextBoxColumn();
             gpbDatos.SuspendLayout();
             tbcDatos.SuspendLayout();
             tpgDatos.SuspendLayout();
@@ -210,10 +215,36 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(100, 61);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colMarca, ColOrigen, colNumero, colPrecio, coldescripcion });
+            dataGridView1.Location = new Point(6, 33);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.Size = new Size(563, 219);
             dataGridView1.TabIndex = 0;
+            // 
+            // colMarca
+            // 
+            colMarca.HeaderText = "Marca";
+            colMarca.Name = "colMarca";
+            // 
+            // ColOrigen
+            // 
+            ColOrigen.HeaderText = "Origen";
+            ColOrigen.Name = "ColOrigen";
+            // 
+            // colNumero
+            // 
+            colNumero.HeaderText = "Numero";
+            colNumero.Name = "colNumero";
+            // 
+            // colPrecio
+            // 
+            colPrecio.HeaderText = "Precio";
+            colPrecio.Name = "colPrecio";
+            // 
+            // coldescripcion
+            // 
+            coldescripcion.HeaderText = "Descripcion";
+            coldescripcion.Name = "coldescripcion";
             // 
             // frmDatosRepuestos
             // 
@@ -251,5 +282,10 @@
         private TabPage tpgDatos;
         private TabPage tabPage2;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn colMarca;
+        private DataGridViewTextBoxColumn ColOrigen;
+        private DataGridViewTextBoxColumn colNumero;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewTextBoxColumn coldescripcion;
     }
 }

@@ -66,7 +66,11 @@ namespace prySP3OTTONELLORepuestos
         private void frmDatosRepuestos_Load(object sender, EventArgs e)
         {
             CargadorDatos();
-            MessageBox
+            MessageBox.Show("Se van a mostrar datos");
+            for (int filas = 0; filas < matRespuesto.GetLength(0); filas++) 
+            {
+                dvg
+            }
 
         }
 
