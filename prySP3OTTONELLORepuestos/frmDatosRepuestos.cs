@@ -50,12 +50,34 @@ namespace prySP3OTTONELLORepuestos
 
         private void cmbMarcaRepuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cmbMarcaRepuesto.Text == "")
+            {
+                cmbOrigenRepuesto.Enabled = false;
+            }
+            else
+            {
+                cmbOrigenRepuesto.Enabled = true;
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            if (cmbMarcaRepuesto.Text == "")
+            {
+                MessageBox.Show("Seleccione un item válido");
+            }
+            else if (cmbOrigenRepuesto.Text == "")
+            {
+                MessageBox.Show("Seleccione un item válido");
+            }
+            else if (!mtbNumero.MaskFull)
+            {
+                MessageBox.Show("Complete el campo");
+            }
+            else if (mtbPrecio.Text == "")
+            {
+                MessageBox.Show("Complete el campo");
+            }
         }
 
         private void tpgDatos_Click(object sender, EventArgs e)
@@ -66,16 +88,54 @@ namespace prySP3OTTONELLORepuestos
         private void frmDatosRepuestos_Load(object sender, EventArgs e)
         {
             CargadorDatos();
-            MessageBox.Show("Se van a mostrar datos");
-            for (int filas = 0; filas < matRespuesto.GetLength(0); filas++) 
+            MessageBox.Show("Presione aceptar para ver datos cargados");
+
+            List<string> origenes = new List<string>();
+            List<string> listaMarcas = new List<string>();
+
+            for (int filas = 0; filas < matRespuesto.GetLength(0); filas++)
             {
-                dvg
+                dgvDatos.Rows.Add(matRespuesto[filas, 0],
+                    matRespuesto[filas, 1],
+                    matRespuesto[filas, 2],
+                    matRespuesto[filas, 3],
+                    matRespuesto[filas, 4]);
+                if (!listaMarcas.Contains(matRespuesto[filas, 0]))
+                {
+                    listaMarcas.Add(matRespuesto[filas, 0]);
+                }
+                if (!origenes.Contains(matRespuesto[filas, 1]))
+                {
+                    listaMarcas.Add(matRespuesto[filas, 0]);
+                }
+
             }
+            //cboMarcaFiltro.DataSource = listaMarcas;
+            //cmbOrigenFiltro.DataSource = origenes;
 
         }
 
         //Tengo que crear una funcion afuera del formulario para que funcione-
         public void CargadorDatos()
+        {
+
+        }
+
+        private void cmbOrigenRepuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cmbOrigenRepuesto.Text = ("");
+            cmbMarcaRepuesto.Text = ("");
+            mtbNumero.Text = string.Empty;  
+            mtbPrecio.Text = string.Empty;
+
+        }
+
+        private void mtbNumero_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
