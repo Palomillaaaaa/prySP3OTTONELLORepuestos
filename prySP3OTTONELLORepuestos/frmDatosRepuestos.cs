@@ -17,6 +17,7 @@ namespace prySP3OTTONELLORepuestos
             InitializeComponent();
         }
 
+
         struct DatosRepuestos
         {
             public string Marca;
@@ -25,10 +26,13 @@ namespace prySP3OTTONELLORepuestos
             public string Codigo;
             public string IDRepuesto;
             public string Descripcion;
+
         }
 
         DatosRepuestos[] VecRepuestos = new DatosRepuestos[100];
         int indiceGrabar = 0;
+        int indice = 0;
+        int recorrer = 0;
         bool cargar = false;
         //Porque el bool? no lo entiendo
 
@@ -85,7 +89,7 @@ namespace prySP3OTTONELLORepuestos
             {
                 MessageBox.Show("Seleccione un item válido");
             }
-            else if (txtCodigo.Text == " ")
+            else if (mtbCodigo.Text == " ")
             {
                 MessageBox.Show("Complete el campo");
             }
@@ -99,7 +103,7 @@ namespace prySP3OTTONELLORepuestos
 
             while (recorrer <= indice && cargar == true)
             {
-                if (vecRepuesto[recorrer].IDRepuesto == mtbCodigo.MaskFull)
+                if (VecRepuestos[recorrer].IDRepuesto == mtbCodigo.Text)
                 {
                     MessageBox.Show("Ya se encuentra el Id dentro de los datos");
 
@@ -114,14 +118,14 @@ namespace prySP3OTTONELLORepuestos
                 {
                     VecRepuestos[indice].Marca = cmbMarcaRepuesto.Text;
                     VecRepuestos[indice].Origen = cmbOrigenRepuesto.Text;
-                    VecRepuestos[indice].IDRepuesto = txtCodigo.Text;
+                    VecRepuestos[indice].IDRepuesto = mtbCodigo.Text;
                     VecRepuestos[indice].Precio = mtbPrecio.Text;
-                    VecRepuestos[indice].Descripcion = rtbDescripcion;
-                    
-                    indice ++
+                    VecRepuestos[indice].Descripcion = rtbDescripcion.Text;
+
+                    indice++;
                     cmbOrigenRepuesto.SelectedIndex = -1;
                     cmbMarcaRepuesto.SelectedIndex = -1;
-                    txtCodigo.Text = string.Empty;
+                    mtbCodigo.Text = string.Empty;
                     mtbPrecio.Text = string.Empty;
                     rtbDescripcion.Text = string.Empty;
                     cmbMarcaRepuesto.Focus();
@@ -130,6 +134,7 @@ namespace prySP3OTTONELLORepuestos
 
                 }
             }
+        }
 
 
         private void tpgDatos_Click(object sender, EventArgs e)
@@ -188,7 +193,7 @@ namespace prySP3OTTONELLORepuestos
         {
             cmbOrigenRepuesto.SelectedIndex = -1;
             cmbMarcaRepuesto.SelectedIndex = -1;
-            txtCodigo.Text = string.Empty;
+            mtbCodigo.Text = string.Empty;
             mtbPrecio.Text = string.Empty;
             rtbDescripcion.Text = string.Empty;
             cmbMarcaRepuesto.Focus();
@@ -206,6 +211,11 @@ namespace prySP3OTTONELLORepuestos
         }
 
         private void mtbPrecio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void mtbCodigo_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
