@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             gpbDatos = new GroupBox();
+            txtCodigo = new TextBox();
             btnLimpiar = new Button();
             rtbDescripcion = new RichTextBox();
             btnGuardar = new Button();
             mtbPrecio = new MaskedTextBox();
             lblPrecio = new Label();
             label1 = new Label();
-            mtbNumero = new MaskedTextBox();
-            lblNumeroRepuesto = new Label();
+            lblCódigoRepuesto = new Label();
             cmbOrigenRepuesto = new ComboBox();
             lblOrigenRepuesto = new Label();
             cmbMarcaRepuesto = new ComboBox();
@@ -59,14 +59,14 @@
             // 
             // gpbDatos
             // 
+            gpbDatos.Controls.Add(txtCodigo);
             gpbDatos.Controls.Add(btnLimpiar);
             gpbDatos.Controls.Add(rtbDescripcion);
             gpbDatos.Controls.Add(btnGuardar);
             gpbDatos.Controls.Add(mtbPrecio);
             gpbDatos.Controls.Add(lblPrecio);
             gpbDatos.Controls.Add(label1);
-            gpbDatos.Controls.Add(mtbNumero);
-            gpbDatos.Controls.Add(lblNumeroRepuesto);
+            gpbDatos.Controls.Add(lblCódigoRepuesto);
             gpbDatos.Controls.Add(cmbOrigenRepuesto);
             gpbDatos.Controls.Add(lblOrigenRepuesto);
             gpbDatos.Controls.Add(cmbMarcaRepuesto);
@@ -81,6 +81,13 @@
             gpbDatos.TabStop = false;
             gpbDatos.Text = "Datos del Repuesto";
             gpbDatos.Enter += groupBox1_Enter;
+            // 
+            // txtCodigo
+            // 
+            txtCodigo.Location = new Point(409, 79);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(108, 31);
+            txtCodigo.TabIndex = 10;
             // 
             // btnLimpiar
             // 
@@ -102,6 +109,7 @@
             rtbDescripcion.Size = new Size(505, 159);
             rtbDescripcion.TabIndex = 1;
             rtbDescripcion.Text = "";
+            rtbDescripcion.TextChanged += rtbDescripcion_TextChanged;
             // 
             // btnGuardar
             // 
@@ -120,8 +128,9 @@
             mtbPrecio.Margin = new Padding(4, 5, 4, 5);
             mtbPrecio.Mask = "999.999";
             mtbPrecio.Name = "mtbPrecio";
-            mtbPrecio.Size = new Size(120, 31);
+            mtbPrecio.Size = new Size(108, 31);
             mtbPrecio.TabIndex = 8;
+            mtbPrecio.MaskInputRejected += mtbPrecio_MaskInputRejected;
             // 
             // lblPrecio
             // 
@@ -144,25 +153,15 @@
             label1.TabIndex = 5;
             label1.Text = "Descripción";
             // 
-            // mtbNumero
+            // lblCódigoRepuesto
             // 
-            mtbNumero.Location = new Point(409, 77);
-            mtbNumero.Margin = new Padding(4, 5, 4, 5);
-            mtbNumero.Mask = "999999";
-            mtbNumero.Name = "mtbNumero";
-            mtbNumero.Size = new Size(120, 31);
-            mtbNumero.TabIndex = 1;
-            mtbNumero.MaskInputRejected += mtbNumero_MaskInputRejected;
-            // 
-            // lblNumeroRepuesto
-            // 
-            lblNumeroRepuesto.AutoSize = true;
-            lblNumeroRepuesto.Location = new Point(409, 47);
-            lblNumeroRepuesto.Margin = new Padding(4, 0, 4, 0);
-            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
-            lblNumeroRepuesto.Size = new Size(77, 25);
-            lblNumeroRepuesto.TabIndex = 4;
-            lblNumeroRepuesto.Text = "Número";
+            lblCódigoRepuesto.AutoSize = true;
+            lblCódigoRepuesto.Location = new Point(409, 47);
+            lblCódigoRepuesto.Margin = new Padding(4, 0, 4, 0);
+            lblCódigoRepuesto.Name = "lblCódigoRepuesto";
+            lblCódigoRepuesto.Size = new Size(71, 25);
+            lblCódigoRepuesto.TabIndex = 4;
+            lblCódigoRepuesto.Text = "Código";
             // 
             // cmbOrigenRepuesto
             // 
@@ -317,8 +316,7 @@
         private ComboBox cmbMarcaRepuesto;
         private ComboBox cmbOrigenRepuesto;
         private Label lblOrigenRepuesto;
-        private Label lblNumeroRepuesto;
-        private MaskedTextBox mtbNumero;
+        private Label lblCódigoRepuesto;
         private Label lblPrecio;
         private Label label1;
         private Button btnGuardar;
@@ -334,5 +332,6 @@
         private DataGridViewTextBoxColumn colPrecio;
         private DataGridViewTextBoxColumn coldescripcion;
         private Button btnLimpiar;
+        private TextBox txtCodigo;
     }
 }

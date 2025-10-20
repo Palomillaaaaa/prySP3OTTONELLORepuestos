@@ -17,9 +17,24 @@ namespace prySP3OTTONELLORepuestos
             InitializeComponent();
         }
 
+        struct DatosRepuestos
+        {
+            public string Marca;
+            public string Origen;
+            public string Precio;
+            public string Codigo;
+            public string IDRepuesto;
+            public string Descripcion;
+        }
+
+        DatosRepuestos[] VecRepuestos = new DatosRepuestos[100];
+        int indiceGrabar = 0;
+        bool cargar = false;
+        //Porque el bool? no lo entiendo
+
         string[,] matRespuesto = new string[4, 5];
 
-        int indiceGrabar = 0;
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             matRespuesto[indiceGrabar, 0] = "marca";
@@ -70,7 +85,7 @@ namespace prySP3OTTONELLORepuestos
             {
                 MessageBox.Show("Seleccione un item válido");
             }
-            else if (!mtbNumero.MaskFull)
+            else if (txtCodigo.Text == " ")
             {
                 MessageBox.Show("Complete el campo");
             }
@@ -78,7 +93,44 @@ namespace prySP3OTTONELLORepuestos
             {
                 MessageBox.Show("Complete el campo");
             }
-        }
+
+            cargar = true;
+            recorrer = 0;
+
+            while (recorrer <= indice && cargar == true)
+            {
+                if (vecRepuesto[recorrer].IDRepuesto == mtbCodigo.MaskFull)
+                {
+                    MessageBox.Show("Ya se encuentra el Id dentro de los datos");
+
+                    cargar = false;
+                }
+                else
+                {
+                    recorrer++;
+                }
+
+                if (cargar)
+                {
+                    VecRepuestos[indice].Marca = cmbMarcaRepuesto.Text;
+                    VecRepuestos[indice].Origen = cmbOrigenRepuesto.Text;
+                    VecRepuestos[indice].IDRepuesto = txtCodigo.Text;
+                    VecRepuestos[indice].Precio = mtbPrecio.Text;
+                    VecRepuestos[indice].Descripcion = rtbDescripcion;
+                    
+                    indice ++
+                    cmbOrigenRepuesto.SelectedIndex = -1;
+                    cmbMarcaRepuesto.SelectedIndex = -1;
+                    txtCodigo.Text = string.Empty;
+                    mtbPrecio.Text = string.Empty;
+                    rtbDescripcion.Text = string.Empty;
+                    cmbMarcaRepuesto.Focus();
+
+
+
+                }
+            }
+
 
         private void tpgDatos_Click(object sender, EventArgs e)
         {
@@ -87,6 +139,12 @@ namespace prySP3OTTONELLORepuestos
 
         private void frmDatosRepuestos_Load(object sender, EventArgs e)
         {
+            cmbMarcaRepuesto.Items.Add("P (Peugeot)");
+            cmbMarcaRepuesto.Items.Add("F (Fiat)");
+            cmbMarcaRepuesto.Items.Add("R (Renault)");
+            cmbOrigenRepuesto.Items.Add("N (Nacional)");
+            cmbOrigenRepuesto.Items.Add("I (Internacional)");
+
             CargadorDatos();
             MessageBox.Show("Presione aceptar para ver datos cargados");
 
@@ -128,14 +186,26 @@ namespace prySP3OTTONELLORepuestos
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            cmbOrigenRepuesto.Text = ("");
-            cmbMarcaRepuesto.Text = ("");
-            mtbNumero.Text = string.Empty;  
+            cmbOrigenRepuesto.SelectedIndex = -1;
+            cmbMarcaRepuesto.SelectedIndex = -1;
+            txtCodigo.Text = string.Empty;
             mtbPrecio.Text = string.Empty;
+            rtbDescripcion.Text = string.Empty;
+            cmbMarcaRepuesto.Focus();
 
         }
 
         private void mtbNumero_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void rtbDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtbPrecio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
