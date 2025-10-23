@@ -98,7 +98,7 @@ namespace prySP3OTTONELLORepuestos
             int indice = 0;
             int recorrer = 0;
 
-
+            //solucionar esto
             while (recorrer <= indice && cargar == true)
             {
                 if (VecRepuestos[recorrer].IDRepuesto == txtCodigo.Text)

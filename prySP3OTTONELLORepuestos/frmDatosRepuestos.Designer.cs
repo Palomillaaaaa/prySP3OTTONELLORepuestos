@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatosRepuestos));
             gpbDatos = new GroupBox();
             txtDescripcion = new TextBox();
             txtCodigo = new TextBox();
@@ -44,6 +45,8 @@
             tbcDatos = new TabControl();
             tpgDatos = new TabPage();
             Datos = new TabPage();
+            lblMostrarMarca = new Label();
+            lblMostrarOrigen = new Label();
             cmbMarcaFiltro = new ComboBox();
             cmbOrigenFiltro = new ComboBox();
             dgvDatos = new DataGridView();
@@ -52,8 +55,6 @@
             colNumero = new DataGridViewTextBoxColumn();
             colPrecio = new DataGridViewTextBoxColumn();
             coldescripcion = new DataGridViewTextBoxColumn();
-            lblMostrarOrigen = new Label();
-            lblMostrarMarca = new Label();
             gpbDatos.SuspendLayout();
             tbcDatos.SuspendLayout();
             tpgDatos.SuspendLayout();
@@ -247,13 +248,31 @@
             Datos.Text = "Mostrar";
             Datos.UseVisualStyleBackColor = true;
             // 
+            // lblMostrarMarca
+            // 
+            lblMostrarMarca.AutoSize = true;
+            lblMostrarMarca.Location = new Point(21, 40);
+            lblMostrarMarca.Name = "lblMostrarMarca";
+            lblMostrarMarca.Size = new Size(60, 25);
+            lblMostrarMarca.TabIndex = 4;
+            lblMostrarMarca.Text = "Marca";
+            // 
+            // lblMostrarOrigen
+            // 
+            lblMostrarOrigen.AutoSize = true;
+            lblMostrarOrigen.Location = new Point(233, 40);
+            lblMostrarOrigen.Name = "lblMostrarOrigen";
+            lblMostrarOrigen.Size = new Size(66, 25);
+            lblMostrarOrigen.TabIndex = 3;
+            lblMostrarOrigen.Text = "Origen";
+            // 
             // cmbMarcaFiltro
             // 
             cmbMarcaFiltro.FormattingEnabled = true;
             cmbMarcaFiltro.Location = new Point(21, 78);
             cmbMarcaFiltro.Name = "cmbMarcaFiltro";
             cmbMarcaFiltro.Size = new Size(182, 33);
-            cmbMarcaFiltro.TabIndex = 2;
+            cmbMarcaFiltro.TabIndex = 0;
             // 
             // cmbOrigenFiltro
             // 
@@ -272,7 +291,7 @@
             dgvDatos.Name = "dgvDatos";
             dgvDatos.RowHeadersWidth = 62;
             dgvDatos.Size = new Size(804, 365);
-            dgvDatos.TabIndex = 0;
+            dgvDatos.TabIndex = 2;
             // 
             // colMarca
             // 
@@ -309,30 +328,13 @@
             coldescripcion.Name = "coldescripcion";
             coldescripcion.Width = 150;
             // 
-            // lblMostrarOrigen
-            // 
-            lblMostrarOrigen.AutoSize = true;
-            lblMostrarOrigen.Location = new Point(233, 40);
-            lblMostrarOrigen.Name = "lblMostrarOrigen";
-            lblMostrarOrigen.Size = new Size(66, 25);
-            lblMostrarOrigen.TabIndex = 3;
-            lblMostrarOrigen.Text = "Origen";
-            // 
-            // lblMostrarMarca
-            // 
-            lblMostrarMarca.AutoSize = true;
-            lblMostrarMarca.Location = new Point(21, 40);
-            lblMostrarMarca.Name = "lblMostrarMarca";
-            lblMostrarMarca.Size = new Size(60, 25);
-            lblMostrarMarca.TabIndex = 4;
-            lblMostrarMarca.Text = "Marca";
-            // 
             // frmDatosRepuestos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1379, 1050);
             Controls.Add(tbcDatos);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             Name = "frmDatosRepuestos";
             Text = "frmDatosRepuestos";
