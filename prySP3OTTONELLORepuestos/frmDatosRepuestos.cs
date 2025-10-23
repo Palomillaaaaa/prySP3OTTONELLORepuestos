@@ -156,8 +156,8 @@ namespace prySP3OTTONELLORepuestos
             List<string> listaMarcas = new List<string>();
             List<string> listaOrigenes = new List<string>();
 
-            
-            for (int filas = 0; filas < matRespuesto; filas++)
+
+            for (int filas = 0; filas < matRespuesto.GetLength(0); filas++)
             {
                 // Agregar fila al DataGridView
                 dgvDatos.Rows.Add(
@@ -182,7 +182,7 @@ namespace prySP3OTTONELLORepuestos
             }
 
             // Asignar las listas a los ComboBox de filtro
-            cboMarcaFiltro.DataSource = listaMarcas;
+            cmbMarcaFiltro.DataSource = listaMarcas;
             cmbOrigenFiltro.DataSource = listaOrigenes;
 
         }
